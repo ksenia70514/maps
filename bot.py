@@ -29,4 +29,13 @@ def main():
     updater.idle()
 
 if __name__ == '__main__':
+color_choice = 'red' 
+
+def set_color(update, context):
+    global color_choice
+    if context.args:
+        color_choice = context.args[0]
+        update.message.reply_text(f"Цвет маркеров установлен: {color_choice}")
+    else:
+        update.message.reply_text("Пожалуйста, укажите цвет, например: /set_color blue")
     main()
