@@ -12,8 +12,13 @@ def create_graph(cities):
     for city in cities:
         ax.plot(city['lon'], city['lat'], 'ro') 
         ax.text(city['lon'], city['lat'], city['name'], fontsize=8)
-
+def create_graph(cities, marker_color='red'):
+  
+    for city in cities:
+        ax.plot(city['lon'], city['lat'], marker='o', color=marker_color)
+       
     filename = 'cities_map.png'
     plt.savefig(filename)
     plt.close()
+
     return filename
